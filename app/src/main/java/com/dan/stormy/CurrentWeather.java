@@ -33,10 +33,10 @@ public class CurrentWeather {
     }
 
     public int getIconId() {
-        // clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day, or partly-cloudy-night
+        // clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day, or partly-cloudy-night.
         int iconId = R.drawable.clear_day;
 
-        if(mIcon.equals("clear-day")) {
+        if (mIcon.equals("clear-day")) {
             iconId = R.drawable.clear_day;
         }
         else if (mIcon.equals("clear-night")) {
@@ -87,8 +87,8 @@ public class CurrentWeather {
         mTime = time;
     }
 
-    public double getTemperature() {
-        return mTemperature;
+    public int getTemperature() {
+        return (int)Math.round(mTemperature);
     }
 
     public void setTemperature(double temperature) {
@@ -103,8 +103,9 @@ public class CurrentWeather {
         mHumidity = humidity;
     }
 
-    public double getPrecipChance() {
-        return mPrecipChance;
+    public int getPrecipChance() {
+        double precipPercentage = mPrecipChance * 100;
+        return (int)Math.round(precipPercentage);
     }
 
     public void setPrecipChance(double precipChance) {
